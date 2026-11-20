@@ -28,13 +28,13 @@ pytest-api-demo/
 pip install uv
 uv python install 3.13
 uv sync --frozen
-pytest
+uv run pytest
 ```
 
 生成 JUnit 与 Allure 原始数据：
 
 ```powershell
-pytest --junitxml=test-results/junit.xml --alluredir=test-results/allure-results
+uv run pytest --junitxml=test-results/junit.xml --alluredir=test-results/allure-results
 ```
 
 可通过环境变量切换测试地址和超时时间：
@@ -46,7 +46,12 @@ $env:API_TIMEOUT = "10"
 
 ## CI
 
-GitHub Actions 会在 push / pull request 时安装依赖、执行测试，并上传 JUnit 与 Allure 原始测试产物，便于定位失败原因。
+GitHub Actions 会在 push / pull request 到 develop、main 分支时安装依赖、执行测试，并上传 JUnit 与 Allure 原始测试产物，便于定位失败原因。
+
+对非核心文件（`*.md`,`docs/**`, `README*`,`.github/ISSUE_TEMPLATE/**`）的修改不会触发 CI/CD。
+
+注意：本仓库不建议直接向 main、develop 分支 push。
+
 
 ## 技术栈
 
