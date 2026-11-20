@@ -2,8 +2,8 @@ import logging
 from urllib.parse import urljoin
 
 import requests
-from config.settings import BASE_URL, TIMEOUT
 
+from config.settings import BASE_URL, TIMEOUT
 
 logger = logging.getLogger(__name__)
 

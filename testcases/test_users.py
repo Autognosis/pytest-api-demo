@@ -1,6 +1,3 @@
-import pytest
-
-
 REQUIRED_USER_FIELDS = {"id", "name", "username", "email"}
 
 
@@ -34,7 +31,7 @@ class TestUsers:
         new_user = {
             "name": "测试用户",
             "username": "testuser",
-            "email": "test@example.com"
+            "email": "test@example.com",
         }
         response = api_client.post("users", data=new_user)
         assert response.status_code == 201

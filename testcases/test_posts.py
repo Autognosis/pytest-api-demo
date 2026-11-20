@@ -24,11 +24,7 @@ class TestPosts:
 
     def test_create_post(self, api_client):
         """创建文章，验证返回 201"""
-        new_post = {
-            "title": "测试文章标题",
-            "body": "这是测试文章的内容",
-            "userId": 1
-        }
+        new_post = {"title": "测试文章标题", "body": "这是测试文章的内容", "userId": 1}
         response = api_client.post("posts", data=new_post)
         assert response.status_code == 201
         result = response.json()
