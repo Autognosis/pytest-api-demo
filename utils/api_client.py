@@ -1,9 +1,8 @@
 import logging
-from urllib.parse import urljoin
 
 import requests
-from config.settings import BASE_URL, TIMEOUT
 
+from config.settings import BASE_URL, TIMEOUT
 
 logger = logging.getLogger(__name__)
 
@@ -17,7 +16,7 @@ class ApiClient:
         self.session.headers.update({"Content-Type": "application/json"})
 
     def request(self, method, endpoint, **kwargs):
-        url = urljoin(f"{self.base_url}/", endpoint.lstrip("/"))
+        url = f"{self.base_url.rstrip('/')}/{endpoint.lstrip('/')}"
         logger.info("%s %s", method.upper(), url)
         response = self.session.request(method, url, timeout=TIMEOUT, **kwargs)
         logger.info("%s %s -> %s", method.upper(), url, response.status_code)

@@ -7,7 +7,7 @@
 - `GET /users`：列表、详情、字段完整性
 - `GET /users/9999`：资源不存在的 404 异常场景
 - `POST /users`：创建数据与响应字段校验
-- `GET /posts`：列表数量、响应结构、参数化详情校验
+- `GET /posts`：列表数量、响应结构、参数化详情校验、边界情况。
 - `POST /posts`：创建数据与响应字段校验
 
 ## 项目结构
@@ -25,9 +25,9 @@ pytest-api-demo/
 ## 本地运行
 
 ```powershell
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
+pip install uv
+uv python install 3.13
+uv sync --frozen
 pytest
 ```
 
@@ -50,4 +50,4 @@ GitHub Actions 会在 push / pull request 时安装依赖、执行测试，并�
 
 ## 技术栈
 
-Python 3.11+、pytest、requests、Allure Pytest、GitHub Actions
+Python 3.13+、pytest、requests、Allure Pytest、GitHub Actions

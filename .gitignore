@@ -21,3 +21,8 @@ Thumbs.db
 # 测试产物
 allure-results/
 allure-report/
+test-results/
+
+# 其他临时文件
+*.http
+*.log
